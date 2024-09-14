@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +65,84 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
+:root {
+    font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    
+    /* Maintain dark theme */
+    color-scheme: dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #1c1c1c;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  a {
+    font-weight: 500;
+    color: #007bff; /* Brighter link color for contrast */
+    text-decoration: inherit;
+  }
+  a:hover {
+    color: #0056b3; /* Darker blue for hover effect */
+  }
+  
+  body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: #1c1c1c; /* Ensure body has dark background */
+    color: #dcdcdc; /* Light color for readability */
+  }
+  
+  h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+    color: #ffffff; /* Bright white for headings */
+  }
+  
+  button {
+    border-radius: 8px;
+    border: 1px solid #444; /* Subtle border for dark theme */
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #2a2a2a; /* Dark button background */
+    color: #dcdcdc;
+    cursor: pointer;
+    transition: border-color 0.25s, background-color 0.25s;
+  }
+  
+  button:hover {
+    border-color: #007bff; /* Border color to match link hover */
+    background-color: #333; /* Slightly darker hover background */
+  }
+  
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+    outline-color: #007bff; /* Blue focus outline */
+  }
+  
+  @media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+      color: #213547;
+      border-color: #ccc;
+    }
+  }
+  

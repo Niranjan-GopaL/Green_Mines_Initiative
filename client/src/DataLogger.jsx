@@ -1,7 +1,8 @@
 /*
-- Add buttons for saving and loading default parameters.
-- Add the functionality to handle clearing values with Alt + C.
-- Handle the functionality for loading default parameters with Alt + W
+- adding default parameters from the PDF ( a mine's parameter )
+- adding a small navbar with 2 sections :- National Ranking, Data Entry 
+- 
+
 */
 
 import React, { useState, useRef } from 'react';
