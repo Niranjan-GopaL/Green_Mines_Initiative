@@ -1,4 +1,3 @@
-# Data_Logger
 # Coal Mines Carbon Footprint & Carbon Neutrality Initiative
 
 ## Overview
@@ -20,3 +19,19 @@ This project focuses on analyzing the carbon footprint of coal mining operations
 1. Clone the repository:
    ```bash
    git clone git@github.com:Niranjan-GopaL/Green_Mines_Initiative.git
+
+## Gallery
+
+![Alt text](./../images/1_.png)
+-- 
+![Alt text](./../images/1.png)
+--
+![Alt text](./../images/2.png)
+--
+![Alt text](./../images/3.png)
+--
+![Alt text](./../images/4.png)
+--
+![Alt text](./../images/5.png)
+--
+![Alt text](./../images/6.png)

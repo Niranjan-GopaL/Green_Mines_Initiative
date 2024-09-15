@@ -1,5 +1,4 @@
-// EmissionEstimation.jsx
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { TextField, Typography, Box } from '@mui/material';
 
 const EmissionEstimation = () => {
@@ -18,6 +17,8 @@ const EmissionEstimation = () => {
     emissionsFromWasteDisposal: 0,
   });
 
+  const fieldRefs = useRef([]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setActivities({
@@ -27,21 +28,33 @@ const EmissionEstimation = () => {
   };
 
   const calculateEmissions = () => {
-    const totalEmissions =
-      activities.fuelConsumption +
-      activities.electricityUsage +
-      activities.methaneEmissions +
-      activities.explosivesUsage +
-      activities.transportationDistance +
-      activities.coalProduction +
-      activities.waterUsage +
-      activities.landDisturbance +
-      activities.wasteGeneration +
-      activities.emissionsFromMachinery +
-      activities.emissionsFromProcessing +
-      activities.emissionsFromWasteDisposal;
+    const totalEmissions = Object.values(activities).reduce((acc, emission) => acc + emission, 0);
     return totalEmissions;
   };
+
+  const handleKeyDown = (e, index, field) => {
+    const totalFields = Object.keys(activities).length;
+    const navigationKeys = { h: -1, l: 1, j: 3, k: -3 }; // Left, Right, Down, Up
+
+    if (e.altKey && navigationKeys[e.key] !== undefined) {
+      e.preventDefault();
+      const newIndex = (index + navigationKeys[e.key] + totalFields) % totalFields; // Modulo for cyclic navigation
+      fieldRefs.current[newIndex].focus();
+    }
+  };
+
+  const renderTextField = (label, name, index) => (
+    <TextField
+      key={name}
+      label={label}
+      name={name}
+      variant="outlined"
+      fullWidth
+      onChange={handleChange}
+      inputRef={(el) => (fieldRefs.current[index] = el)}
+      onKeyDown={(e) => handleKeyDown(e, index, name)}
+    />
+  );
 
   return (
     <Box>
@@ -51,102 +64,30 @@ const EmissionEstimation = () => {
 
       {/* Box 1: 3 TextFields */}
       <Box display="flex" gap={2} marginBottom={2}>
-        <TextField
-          label="Fuel Consumption (tons)"
-          name="fuelConsumption"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-        />
-        <TextField
-          label="Electricity Usage (kWh)"
-          name="electricityUsage"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-        />
-        <TextField
-          label="Methane Emissions (tons)"
-          name="methaneEmissions"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-        />
+        {renderTextField('Fuel Consumption (tons)', 'fuelConsumption', 0)}
+        {renderTextField('Electricity Usage (kWh)', 'electricityUsage', 1)}
+        {renderTextField('Methane Emissions (tons)', 'methaneEmissions', 2)}
       </Box>
 
       {/* Box 2: 3 TextFields */}
       <Box display="flex" gap={2} marginBottom={2}>
-        <TextField
-          label="Explosives Usage (kg)"
-          name="explosivesUsage"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-        />
-        <TextField
-          label="Transportation Distance (km)"
-          name="transportationDistance"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-        />
-        <TextField
-          label="Coal Production (tons)"
-          name="coalProduction"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-        />
+        {renderTextField('Explosives Usage (kg)', 'explosivesUsage', 3)}
+        {renderTextField('Transportation Distance (km)', 'transportationDistance', 4)}
+        {renderTextField('Coal Production (tons)', 'coalProduction', 5)}
       </Box>
 
       {/* Box 3: 3 TextFields */}
       <Box display="flex" gap={2} marginBottom={2}>
-        <TextField
-          label="Water Usage (liters)"
-          name="waterUsage"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-        />
-        <TextField
-          label="Land Disturbance (hectares)"
-          name="landDisturbance"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-        />
-        <TextField
-          label="Waste Generation (tons)"
-          name="wasteGeneration"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-        />
+        {renderTextField('Water Usage (liters)', 'waterUsage', 6)}
+        {renderTextField('Land Disturbance (hectares)', 'landDisturbance', 7)}
+        {renderTextField('Waste Generation (tons)', 'wasteGeneration', 8)}
       </Box>
 
       {/* Box 4: 3 TextFields */}
       <Box display="flex" gap={2} marginBottom={2}>
-        <TextField
-          label="Emissions from Machinery (tons)"
-          name="emissionsFromMachinery"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-        />
-        <TextField
-          label="Emissions from Processing (tons)"
-          name="emissionsFromProcessing"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-        />
-        <TextField
-          label="Emissions from Waste Disposal (tons)"
-          name="emissionsFromWasteDisposal"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-        />
+        {renderTextField('Emissions from Machinery (tons)', 'emissionsFromMachinery', 9)}
+        {renderTextField('Emissions from Processing (tons)', 'emissionsFromProcessing', 10)}
+        {renderTextField('Emissions from Waste Disposal (tons)', 'emissionsFromWasteDisposal', 11)}
       </Box>
 
       <Typography variant="h6" gutterBottom>
