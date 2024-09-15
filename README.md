@@ -22,16 +22,16 @@ This project focuses on analyzing the carbon footprint of coal mining operations
 
 ## Gallery
 
-![Alt text](./../images/1_.png)
+![Alt text](./images/1_.png)
 -- 
-![Alt text](./../images/1.png)
+![Alt text](./images/1.png)
 --
-![Alt text](./../images/2.png)
+![Alt text](./images/2.png)
 --
-![Alt text](./../images/3.png)
+![Alt text](./images/3.png)
 --
-![Alt text](./../images/4.png)
+![Alt text](./images/4.png)
 --
-![Alt text](./../images/5.png)
+![Alt text](./images/5.png)
 --
-![Alt text](./../images/6.png)
+![Alt text](./images/6.png)
