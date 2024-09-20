@@ -1,4 +1,4 @@
-# Coal Mines Carbon Footprint & Carbon Neutrality Initiative
+****# Coal Mines Carbon Footprint & Carbon Neutrality Initiative
 
 ## Overview
 This project focuses on analyzing the carbon footprint of coal mining operations and proposes strategies to move towards carbon neutrality. The goal is to evaluate the greenhouse gas (GHG) emissions from coal extraction, transportation, and processing, and suggest ways to reduce the environmental impact. We also explore clean energy alternatives and carbon offset programs to help the industry adopt sustainable practices.
@@ -23,7 +23,7 @@ This project focuses on analyzing the carbon footprint of coal mining operations
 ## Gallery
 
 ![Alt text](./images/1_.png)
--- 
+--
 ![Alt text](./images/1.png)
 --
 ![Alt text](./images/2.png)
